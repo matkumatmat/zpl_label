@@ -9,6 +9,16 @@ import socket
 # Read CSV file
 data = pd.read_csv(r'C:\Users\rahmat.wahyu\Desktop\project excel\hasil_packing.csv')
 
+# Fungsi untuk mengirim data ZPL ke printer Zebra
+def send_to_printer(ip, port, zpl_code):
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+            sock.connect((ip, port))
+            sock.sendall(zpl_code.encode('utf-8'))
+        print("ZPL berhasil dikirim ke printer.")
+    except Exception as e:
+        print(f"Kesalahan saat mengirim ke printer: {e}")
+        
 # Loop through each row in the DataFrame
 for index, row in data.iterrows():
     # Extract necessary fields
