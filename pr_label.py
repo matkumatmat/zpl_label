@@ -4,6 +4,7 @@ import shutil
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import os
+import socket
 
 # Read CSV file
 data = pd.read_csv(r'C:\Users\rahmat.wahyu\Desktop\project excel\hasil_packing.csv')
