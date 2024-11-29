@@ -180,3 +180,9 @@ if response.status_code == 200:
         shutil.copyfileobj(response.raw, out_file)
 else:
     print('Error: ' + response.text)
+
+    
+    # Kirim ke printer (ubah IP dan port sesuai printer Anda)
+    printer_ip = "192.168.0.100"  # Ganti dengan IP printer
+    printer_port = 9100           # Biasanya port 9100 untuk printer Zebra
+    send_to_printer(printer_ip, printer_port, zpl_code)
